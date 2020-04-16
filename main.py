@@ -30,7 +30,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtChart import *
 import qtawesome as qta
-
+import action as ac
 
 import sys
 
@@ -39,6 +39,26 @@ class RadioButton(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setUI()
+
+    def onClick0(self):
+        self.g0Edit.setText(ac.get_message())
+
+    def onClick50(self):
+        self.g50Edit.setText(ac.get_message())
+
+    def onClick100(self):
+        self.g100Edit.setText(ac.get_message())
+
+    def onClick150(self):
+        self.g150Edit.setText(ac.get_message())
+
+    def onClick200(self):
+        self.g200Edit.setText(ac.get_message())
+
+    def onClick250(self):
+        self.g250Edit.setText(ac.get_message())
+
+
 
     def setUI(self):
         fa5_icon = qta.icon('fa5.flag')
@@ -51,14 +71,21 @@ class RadioButton(QtWidgets.QWidget):
         self.g200 = QPushButton('200g')
         self.g250 = QPushButton('250g')
 
-        self.table_value = QLabel("获取的值")
-        self.g0Edit = QLineEdit()
-        self.g50Edit = QLineEdit()
-        self.g100Edit = QLineEdit()
-        self.g150Edit = QLineEdit()
-        self.g200Edit = QLineEdit()
-        self.g250Edit = QLineEdit()
 
+        self.table_value = QLabel("获取的值")
+        self.g0Edit = QLineEdit('0')
+        self.g50Edit = QLineEdit('0')
+        self.g100Edit = QLineEdit('0')
+        self.g150Edit = QLineEdit('0')
+        self.g200Edit = QLineEdit('0')
+        self.g250Edit = QLineEdit('0')
+
+        self.g0.clicked.connect(self.onClick0)
+        self.g50.clicked.connect(self.onClick50)
+        self.g100.clicked.connect(self.onClick100)
+        self.g150.clicked.connect(self.onClick150)
+        self.g200.clicked.connect(self.onClick200)
+        self.g250.clicked.connect(self.onClick250)
         # 上左一   布局
         self.formLayout = QFormLayout()
         self.formLayout.addRow(self.table_title, self.table_value)
@@ -91,9 +118,8 @@ class RadioButton(QtWidgets.QWidget):
 
         # 上右一   图本身
         self.widget2 = QWidget()
-        self.widget2.setStyleSheet("QWidget{border: 1px solid #FF0000;}")  # 设置样式
 
-
+        # 上右一   折线图 线一
         self.series_1 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
         self._1_point_0 = QPointF(0.00, 0.00)  # 定义折线坐标点
         self._1_point_1 = QPointF(0.80, 6.00)
@@ -105,6 +131,19 @@ class RadioButton(QtWidgets.QWidget):
                               self._1_point_5]  # 定义折线点清单
         self.series_1.append(self._1_point_list)  # 折线添加坐标点清单
         self.series_1.setName("折线一")  # 折线命名
+
+        # 上右一   折线图 线二
+        self.series_2 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
+        self._2_point_0 = QPointF(0.00, 0.00)  # 定义折线坐标点
+        self._2_point_1 = QPointF(0.80, 5.00)
+        self._2_point_2 = QPointF(2.00, 1.00)
+        self._2_point_3 = QPointF(4.00, 2.00)
+        self._2_point_4 = QPointF(1.00, 2.00)
+        self._2_point_5 = QPointF(5.00, 2.00)
+        self._2_point_list = [self._2_point_0, self._2_point_1, self._2_point_4, self._2_point_2, self._2_point_3,
+                              self._2_point_5]  # 定义折线点清单
+        self.series_2.append(self._2_point_list)  # 折线添加坐标点清单
+        self.series_2.setName("折线er")  # 折线命名
 
         self.x_Aix = QValueAxis()  # 定义x轴，实例化
         self.x_Aix.setRange(0.00, 5.00)  # 设置量程
@@ -119,8 +158,9 @@ class RadioButton(QtWidgets.QWidget):
         self.y_Aix.setMinorTickCount(0)
 
         self.charView = QChartView(self.widget2)  # 定义charView，父窗体类型为 Window
-        self.charView.setGeometry(0, 0, self.width(), self.height())  # 设置charView位置、大小
+        self.charView.setGeometry(50,0, self.width(), self.height())  # 设置charView位置、大小
         self.charView.chart().addSeries(self.series_1)  # 添加折线
+        self.charView.chart().addSeries(self.series_2)  # 添加折线二
         self.charView.chart().setAxisX(self.x_Aix)  # 设置x轴属性
         self.charView.chart().setAxisY(self.y_Aix)  # 设置y轴属性
         self.charView.chart().setTitleBrush(QBrush(Qt.cyan))  # 设置标题笔刷
@@ -145,7 +185,6 @@ class RadioButton(QtWidgets.QWidget):
         self.hlayout.setSpacing(40)
 
         self.widget3 = QWidget()
-        self.widget3.setStyleSheet("QWidget{border_left: 1px solid #FF0000;}")  # 设置样式
         self.widget3.setLayout(self.hlayout)
 
         self.boxstyle = QVBoxLayout()
