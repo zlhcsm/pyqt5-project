@@ -23,11 +23,11 @@ class PltConst:
     def __init__(self):
         self.pltCmdHead = 0x55  # 协议头数值
         self.pltCmdEnd = 0xAA   # 协议尾数值
-        self.
+        # self.
 
 class PltCmd:
     def __init__(self):
-        self.head1 = 0x
+        self.head1 = 0x22
 
 class Ser(object):
     def __init__(self):

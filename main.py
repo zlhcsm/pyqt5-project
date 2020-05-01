@@ -1,28 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# @Time  : 2020-04-13 17:14
-
-# @Author : 张磊
-
-# @Desc : ==============================================
-
-# Life is Short I Use Python!!!                      ===
-
-# If this runs wrong,don't ask me,I don't know why;  ===
-
-# If this runs right,thank god,and I don't know why. ===
-
-# Maybe the answer,my friend,is blowing in the wind. ===
-
-# ======================================================
-
-# @Project : pyqt5
-
-# @FileName: test.py.py
-
-# @Software: PyCharm
-
-# @  Blog:https://blog.csdn.net/zzzzlei123123123
 from PyQt5.QtWidgets import *
 from PyQt5 import QtWidgets
 from PyQt5.QtGui import *
@@ -31,6 +6,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtChart import *
 import qtawesome as qta
 import action as ac
+import dataProcess as DP
 
 import sys
 
@@ -57,6 +33,14 @@ class RadioButton(QtWidgets.QWidget):
 
     def onClick250(self):
         self.g250Edit.setText(ac.get_message())
+
+    def gen_pic(self):
+        listdot = []
+        for i, number in enumerate(DP.get_chart_data()):
+            listdot.append(QPointF(i, number))
+        self._1_point_list = listdot
+        self.series_1.replace(listdot)
+
 
 
 
@@ -99,7 +83,6 @@ class RadioButton(QtWidgets.QWidget):
         # 上左一   图本身
         self.widget1 = QWidget()
         self.widget1.setLayout(self.formLayout)
-        # self.widget1.resize(300, 600)
         self.widget1.setFixedHeight(600)
         self.widget1.setFixedWidth(300)
         self.widget1.setStyleSheet('''
@@ -121,29 +104,21 @@ class RadioButton(QtWidgets.QWidget):
 
         # 上右一   折线图 线一
         self.series_1 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
-        self._1_point_0 = QPointF(0.00, 0.00)  # 定义折线坐标点
-        self._1_point_1 = QPointF(0.80, 6.00)
-        self._1_point_2 = QPointF(2.00, 2.00)
-        self._1_point_3 = QPointF(4.00, 3.00)
-        self._1_point_4 = QPointF(1.00, 3.00)
-        self._1_point_5 = QPointF(5.00, 3.00)
-        self._1_point_list = [self._1_point_0, self._1_point_1, self._1_point_4, self._1_point_2, self._1_point_3,
-                              self._1_point_5]  # 定义折线点清单
+        numbers = [50, 100, 220 ,0, 0, 0]
+        self._1_point_list = []
+        for i, number in enumerate(numbers):
+            self._1_point_list.append(QPointF(i, number))
         self.series_1.append(self._1_point_list)  # 折线添加坐标点清单
         self.series_1.setName("折线一")  # 折线命名
 
         # 上右一   折线图 线二
         self.series_2 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
-        self._2_point_0 = QPointF(0.00, 0.00)  # 定义折线坐标点
-        self._2_point_1 = QPointF(0.80, 5.00)
-        self._2_point_2 = QPointF(2.00, 1.00)
-        self._2_point_3 = QPointF(4.00, 2.00)
-        self._2_point_4 = QPointF(1.00, 2.00)
-        self._2_point_5 = QPointF(5.00, 2.00)
-        self._2_point_list = [self._2_point_0, self._2_point_1, self._2_point_4, self._2_point_2, self._2_point_3,
-                              self._2_point_5]  # 定义折线点清单
+        numbers2 = [50, 100, 150, 200, 250, 300]
+        self._2_point_list = []
+        for i, number in enumerate(numbers2):
+            self._2_point_list.append(QPointF(i, number))
         self.series_2.append(self._2_point_list)  # 折线添加坐标点清单
-        self.series_2.setName("折线er")  # 折线命名
+        self.series_2.setName("真实数据")  # 折线命名
 
         self.x_Aix = QValueAxis()  # 定义x轴，实例化
         self.x_Aix.setRange(0.00, 5.00)  # 设置量程
@@ -152,7 +127,7 @@ class RadioButton(QtWidgets.QWidget):
         self.x_Aix.setMinorTickCount(0)  # 设置每个单元格有几个小的分级
 
         self.y_Aix = QValueAxis()  # 定义y轴
-        self.y_Aix.setRange(0.00, 6.00)
+        self.y_Aix.setRange(0.00, 300)
         self.y_Aix.setLabelFormat("%0.2f")
         self.y_Aix.setTickCount(7)
         self.y_Aix.setMinorTickCount(0)
@@ -169,6 +144,8 @@ class RadioButton(QtWidgets.QWidget):
 
 
 
+
+
         '''layout'''
         self.hbox = QHBoxLayout()
         self.hbox.addWidget(self.widget1)
@@ -177,7 +154,10 @@ class RadioButton(QtWidgets.QWidget):
         self.widget4.setLayout(self.hbox)
 
         self.hlayout = QHBoxLayout()
-        self.hlayout.addWidget(QPushButton('按钮1'))
+        self.genImage = QPushButton('生成图片')
+        # self.genImage.
+        self.hlayout.addWidget(self.genImage)
+        self.genImage.clicked.connect(self.gen_pic)
         self.hlayout.addWidget(QPushButton('按钮2'))
         self.hlayout.addWidget(QPushButton('按钮3'))
         self.hlayout.addWidget(QPushButton('按钮4'))
