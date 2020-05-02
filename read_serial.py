@@ -19,6 +19,43 @@ class TocoCmd2Config:
         self.Sample = 0x08      # 采样数据上传
         self.Demo = 0x09        # 工程模式
 
+class send_cmd:
+    def __init__(self):
+        self.head1 = 0x55
+        self.head2 = 0x55
+        self.len1 = 0x00
+        self.len2 = 0x00
+        self.saddr = 0x01       # 对应c#中的ePtlAddr
+        self.taddr = 0x00       # 对应c#中的ePtlAddr
+        self.cmd1 = 0x62        # 对应的整体功能
+        self.cmd2 = 0x01
+        self.data = bytearray(512)
+        self.sum = self.cal_sum()
+        self.end1 = 0xAA
+        self.end2 = 0xAA
+        self.setting()
+
+    def cal_sum(self):
+        """
+           此方法没有进行健壮性分析
+           数据校验和
+           :return:从数据长度（包括）开始到数据内容结束的所有数据相加取低8位
+           """
+        print(type(self.len2))
+        sum = 0
+        sum += self.len1
+        sum += self.len2
+        sum += self.saddr
+        sum += self.taddr
+        sum += self.cmd1
+        sum += self.cmd2
+        return bytes([sum])
+    def setting(self):
+        """
+        进行整个的赋值操作
+        :return:
+        """
+
 class PltConst:
     def __init__(self):
         self.pltCmdHead = 0x55  # 协议头数值
@@ -52,5 +89,5 @@ class Ser(object):
         print(result)
         return result
 
-to = TocoCmd2Config()
-print(to)
+Hex_str = bytes.fromhex('55 55 00 00 01 00 62 01')
+print(Hex_str)
