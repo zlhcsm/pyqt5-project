@@ -11,6 +11,8 @@ import dataProcess as DP
 import sys
 
 
+
+
 class RadioButton(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
@@ -133,7 +135,9 @@ class RadioButton(QtWidgets.QWidget):
         for i, number in enumerate(numbers):
             self._1_point_list.append(QPointF(i, number))
         self.series_1.append(self._1_point_list)  # 折线添加坐标点清单
+        self.series_1.hovered.connect(self.onSeriesHoverd)
         self.series_1.setName("真实值")  # 折线命名
+        self.series_1.setPointsVisible(True)
 
         # 上右一   折线图 线二
         self.series_2 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
@@ -143,6 +147,8 @@ class RadioButton(QtWidgets.QWidget):
             self._2_point_list.append(QPointF(i, number))
         self.series_2.append(self._2_point_list)  # 折线添加坐标点清单
         self.series_2.setName("预测值")  # 折线命名
+        self.series_2.hovered.connect(self.onSeriesHoverd)
+        self.series_2.setPointsVisible(True)
 
         self.x_Aix = QValueAxis()  # 定义x轴，实例化
         self.x_Aix.setRange(0.00, 5.00)  # 设置量程
@@ -162,15 +168,12 @@ class RadioButton(QtWidgets.QWidget):
         self.charView.chart().addSeries(self.series_1)  # 添加折线
         self.charView.chart().addSeries(self.series_2)  # 添加折线二
         self.charView.chart().createDefaultAxes()
-        self.charView.chart()
+        self.charView.chart().setAcceptHoverEvents(True)   #
         self.charView.chart().setAxisX(self.x_Aix)  # 设置x轴属性
         self.charView.chart().setAxisY(self.y_Aix)  # 设置y轴属性
         self.charView.chart().setTitleBrush(QBrush(Qt.cyan))  # 设置标题笔刷
         self.charView.chart().setTitle("信息对比图")  # 设置标题
         self.charView.show()  # 显示charView
-
-
-
 
 
         '''layout'''
@@ -202,6 +205,15 @@ class RadioButton(QtWidgets.QWidget):
         # 整体窗后设置
         self.setWindowTitle("串口配置工具")  # 设置题目
         self.resize(1200, 800)  # 设置长 X 宽
+
+    def onSeriesHoverd(self, point, state):
+        if state:
+            try:
+                name = self.sender().name()
+            except:
+                name = ""
+            QToolTip.showText(QCursor.pos(), "%s\nx: %s\ny: %s" %
+                              (name, point.x(), point.y()))
 
 
 if __name__ == "__main__":
