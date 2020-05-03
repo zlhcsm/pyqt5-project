@@ -36,10 +36,34 @@ class RadioButton(QtWidgets.QWidget):
 
     def gen_pic(self):
         listdot = []
-        for i, number in enumerate(DP.get_chart_data()):
-            listdot.append(QPointF(i, number))
-        self._1_point_list = listdot
-        self.series_1.replace(listdot)
+        listdot.append(int(self.g0Edit.text()))
+        listdot.append(int(self.g50Edit.text()))
+        listdot.append(int(self.g100Edit.text()))
+        listdot.append(int(self.g150Edit.text()))
+        listdot.append(int(self.g200Edit.text()))
+        listdot.append(int(self.g250Edit.text()))
+        for number in listdot:
+            del self._1_point_list[len(self._1_point_list) - 1]
+            # 第一位插入坐标点
+            self._1_point_list.insert(0, QPointF(0, number))
+            # 更新x坐标点值
+            for i in range(0, len(self._1_point_list)):
+                self._1_point_list[i].setX(i)
+            self.series_1.replace(self._1_point_list)
+        # 更新真实偏差的值
+        listdot2 = []
+        min_num = int(self.g0Edit.text())
+        max_num = int(self.g250Edit.text())
+        for i in range(6):
+            listdot2.append(min_num + (max_num - min_num) / 5 * i)
+        for number in listdot2:
+            del self._2_point_list[len(self._1_point_list) - 1]
+            # 第一位插入坐标点
+            self._2_point_list.insert(0, QPointF(0, number))
+            # 更新x坐标点值
+            for i in range(0, len(self._2_point_list)):
+                self._2_point_list[i].setX(i)
+            self.series_2.replace(self._2_point_list)
 
 
 
@@ -104,21 +128,21 @@ class RadioButton(QtWidgets.QWidget):
 
         # 上右一   折线图 线一
         self.series_1 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
-        numbers = [50, 100, 220 ,0, 0, 0]
+        numbers = [1000, 1200, 1400, 1600, 1800, 2000]
         self._1_point_list = []
         for i, number in enumerate(numbers):
             self._1_point_list.append(QPointF(i, number))
         self.series_1.append(self._1_point_list)  # 折线添加坐标点清单
-        self.series_1.setName("折线一")  # 折线命名
+        self.series_1.setName("真实值")  # 折线命名
 
         # 上右一   折线图 线二
         self.series_2 = QLineSeries()  # 定义LineSerise，将类QLineSeries实例化
-        numbers2 = [50, 100, 150, 200, 250, 300]
+        numbers2 = [1000, 1200, 1400, 1600, 1800, 2000]
         self._2_point_list = []
         for i, number in enumerate(numbers2):
             self._2_point_list.append(QPointF(i, number))
         self.series_2.append(self._2_point_list)  # 折线添加坐标点清单
-        self.series_2.setName("真实数据")  # 折线命名
+        self.series_2.setName("预测值")  # 折线命名
 
         self.x_Aix = QValueAxis()  # 定义x轴，实例化
         self.x_Aix.setRange(0.00, 5.00)  # 设置量程
@@ -127,15 +151,17 @@ class RadioButton(QtWidgets.QWidget):
         self.x_Aix.setMinorTickCount(0)  # 设置每个单元格有几个小的分级
 
         self.y_Aix = QValueAxis()  # 定义y轴
-        self.y_Aix.setRange(0.00, 300)
-        self.y_Aix.setLabelFormat("%0.2f")
-        self.y_Aix.setTickCount(7)
+        self.y_Aix.setRange(1000, 2000)
+        self.y_Aix.setLabelFormat("%d")
+        self.y_Aix.setTickCount(11)
         self.y_Aix.setMinorTickCount(0)
 
         self.charView = QChartView(self.widget2)  # 定义charView，父窗体类型为 Window
         self.charView.setGeometry(50,0, self.width(), self.height())  # 设置charView位置、大小
         self.charView.chart().addSeries(self.series_1)  # 添加折线
         self.charView.chart().addSeries(self.series_2)  # 添加折线二
+        self.charView.chart().createDefaultAxes()
+        self.charView.chart()
         self.charView.chart().setAxisX(self.x_Aix)  # 设置x轴属性
         self.charView.chart().setAxisY(self.y_Aix)  # 设置y轴属性
         self.charView.chart().setTitleBrush(QBrush(Qt.cyan))  # 设置标题笔刷

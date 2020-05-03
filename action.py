@@ -31,5 +31,5 @@ def get_message():
     返回从串口中读取的数据
     :return:
     """
-    num = np.random.randint(low=0, high=6)
+    num = np.random.randint(low=1000, high=2000)
     return str(num)
