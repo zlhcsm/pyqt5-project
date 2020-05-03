@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f9bc23dc-b4af-41af-8f39-415ec2f6e7af" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pyqt5-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pyqt5-project.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1bOw9zzz9ItVZNhxKmnYbQ9R8EI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="action" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyqt5-project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/action.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyqt5-project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="pyqt5-project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.action" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9bc23dc-b4af-41af-8f39-415ec2f6e7af" name="Default Changelist" comment="" />
+      <created>1586949666493</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586949666493</updated>
+      <workItem from="1586949667659" duration="3465000" />
+      <workItem from="1586953299265" duration="5794000" />
+      <workItem from="1587121191964" duration="1099000" />
+      <workItem from="1587124636913" duration="680000" />
+      <workItem from="1587310523646" duration="9000" />
+      <workItem from="1587999333886" duration="29000" />
+      <workItem from="1588516306173" duration="493000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="533" y="142" key="#main" timestamp="1588516325480">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="533" y="142" key="#main/0.0.1680.1050@0.0.1680.1050" timestamp="1588516325480" />
+    <state x="368" y="482" key="FileChooserDialogImpl" timestamp="1588516505103">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="368" y="482" key="FileChooserDialogImpl/0.0.1680.1050@0.0.1680.1050" timestamp="1588516505103" />
+    <state width="1638" height="332" key="GridCell.Tab.0.bottom" timestamp="1588516830363">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="332" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1588516830363" />
+    <state width="1638" height="332" key="GridCell.Tab.0.center" timestamp="1588516830361">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="332" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1588516830361" />
+    <state width="1638" height="332" key="GridCell.Tab.0.left" timestamp="1588516830361">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="332" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1588516830361" />
+    <state width="1638" height="332" key="GridCell.Tab.0.right" timestamp="1588516830362">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="332" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1588516830362" />
+    <state x="341" y="164" key="SettingsEditor" timestamp="1588516800136">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1588516800136" />
+    <state x="494" y="334" key="com.intellij.ide.util.TipDialog" timestamp="1588516311446">
+      <screen x="0" y="23" width="1680" height="953" />
+    </state>
+    <state x="494" y="334" key="com.intellij.ide.util.TipDialog/0.23.1680.953@0.23.1680.953" timestamp="1588516311446" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pyqt5_project$test.coverage" NAME="test Coverage Results" MODIFIED="1587124203483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pyqt5_project$main.coverage" NAME="main Coverage Results" MODIFIED="1588516830353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pyqt5_project$action.coverage" NAME="action Coverage Results" MODIFIED="1587043133783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

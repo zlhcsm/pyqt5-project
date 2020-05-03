@@ -72,5 +72,9 @@
       </profile-state>
     </entry>
   </component>
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (Ob_analyse)" project-jdk-type="Python SDK" />
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6 (pyqt5-project)" project-jdk-type="Python SDK" />
+>>>>>>> db6908f7a337be5eed8c18fd61981e052fd8ffce
 </project>
