@@ -149,6 +149,7 @@ class RadioButton(QtWidgets.QWidget):
         self.x_Aix.setLabelFormat("%0.2f")  # 设置坐标轴坐标显示方式，精确到小数点后两位
         self.x_Aix.setTickCount(6)  # 设置x轴有几个量程
         self.x_Aix.setMinorTickCount(0)  # 设置每个单元格有几个小的分级
+        # self.x_Aix.
 
         self.y_Aix = QValueAxis()  # 定义y轴
         self.y_Aix.setRange(1000, 2000)
