@@ -89,5 +89,6 @@ class Ser(object):
         print(result)
         return result
 
+ser = Ser()
 Hex_str = bytes.fromhex('55 55 00 00 01 00 62 01')
-print(Hex_str)
+ser.send_cmd(Hex_str)

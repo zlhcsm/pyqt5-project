@@ -10,9 +10,6 @@ import dataProcess as DP
 
 import sys
 
-
-
-
 class RadioButton(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
@@ -38,12 +35,12 @@ class RadioButton(QtWidgets.QWidget):
 
     def gen_pic(self):
         listdot = []
-        listdot.append(int(self.g0Edit.text()))
-        listdot.append(int(self.g50Edit.text()))
-        listdot.append(int(self.g100Edit.text()))
-        listdot.append(int(self.g150Edit.text()))
-        listdot.append(int(self.g200Edit.text()))
         listdot.append(int(self.g250Edit.text()))
+        listdot.append(int(self.g200Edit.text()))
+        listdot.append(int(self.g150Edit.text()))
+        listdot.append(int(self.g100Edit.text()))
+        listdot.append(int(self.g50Edit.text()))
+        listdot.append(int(self.g0Edit.text()))
         for number in listdot:
             del self._1_point_list[len(self._1_point_list) - 1]
             # 第一位插入坐标点
@@ -58,6 +55,7 @@ class RadioButton(QtWidgets.QWidget):
         max_num = int(self.g250Edit.text())
         for i in range(6):
             listdot2.append(min_num + (max_num - min_num) / 5 * i)
+        listdot2.reverse()
         for number in listdot2:
             del self._2_point_list[len(self._1_point_list) - 1]
             # 第一位插入坐标点
@@ -66,9 +64,6 @@ class RadioButton(QtWidgets.QWidget):
             for i in range(0, len(self._2_point_list)):
                 self._2_point_list[i].setX(i)
             self.series_2.replace(self._2_point_list)
-
-
-
 
     def setUI(self):
         fa5_icon = qta.icon('fa5.flag')
