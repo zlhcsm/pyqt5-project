@@ -7,6 +7,7 @@ from PyQt5.QtChart import *
 import qtawesome as qta
 import action as ac
 import dataProcess as DP
+from panels.hardware_setting import *
 
 import sys
 
@@ -14,6 +15,7 @@ class RadioButton(QtWidgets.QWidget):
     def __init__(self):
         QtWidgets.QWidget.__init__(self)
         self.setUI()
+        self.init_value()
 
     def onClick0(self):
         self.g0Edit.setText(ac.get_message())
@@ -107,7 +109,7 @@ class RadioButton(QtWidgets.QWidget):
         self.widget1.setFixedHeight(600)
         self.widget1.setFixedWidth(300)
         self.widget1.setStyleSheet('''
-            QPushButton{border:none;color:black;background-color:pink;border:2px;border-radius:10px;padding:2px 4px;width:80px;height:30px}
+            QPushButton{border:none;color:black;background-color:grey;border:2px;border-radius:10px;padding:2px 4px;width:80px;height:30px}
             QLineEdit{border:2px;border-radius:10px;padding:2px 4px;width:120px;height:30px}
             QPushButton:hover{color:red}
             QPushButton#left_label{
@@ -180,19 +182,39 @@ class RadioButton(QtWidgets.QWidget):
 
         self.hlayout = QHBoxLayout()
         self.genImage = QPushButton('生成图片')
+        self.gen_value = QPushButton('生成校准值')
+        self.in_value = QPushButton('写入校准值')
+
         # self.genImage.
         self.hlayout.addWidget(self.genImage)
+        self.hlayout.addWidget(self.gen_value)
+        self.hlayout.addWidget(self.in_value)
         self.genImage.clicked.connect(self.gen_pic)
-        self.hlayout.addWidget(QPushButton('按钮2'))
-        self.hlayout.addWidget(QPushButton('按钮3'))
-        self.hlayout.addWidget(QPushButton('按钮4'))
-        self.hlayout.addWidget(QPushButton('按钮5'))
+        self.hlayout.addWidget(QLineEdit())
+        self.hlayout.addWidget(QLineEdit())
+        self.hlayout.addWidget(QLineEdit())
+        self.hlayout.addWidget(QLineEdit())
+        self.hlayout.addWidget(QLineEdit())
+        self.hlayout.addWidget(QLineEdit())
         self.hlayout.setSpacing(40)
 
         self.widget3 = QWidget()
         self.widget3.setLayout(self.hlayout)
 
+        self.widgetTop = HardwarePanel()
+
+        # self.widgetTop = QWidget()
+        # self.topLayout = QHBoxLayout()
+        # self.topLayout.addWidget(QPushButton("设置DAC值"))
+        # self.topLayout.addWidget(QLineEdit())
+        # self.topLayout.addWidget(QPushButton("当前ADC值"))
+        # self.topLayout.addWidget(QPushButton("当前DAC值"))
+        # self.topLayout.addWidget(QPushButton("当前TOCO值"))
+
+        # self.widgetTop.setLayout(self.topLayout)
+
         self.boxstyle = QVBoxLayout()
+        self.boxstyle.addWidget(self.widgetTop)
         self.boxstyle.addWidget(self.widget4)
         self.boxstyle.addWidget(self.widget3)
         self.setLayout(self.boxstyle)
@@ -209,6 +231,10 @@ class RadioButton(QtWidgets.QWidget):
                 name = ""
             QToolTip.showText(QCursor.pos(), "%s\nx: %s\ny: %s" %
                               (name, point.x(), point.y()))
+
+    def init_value(self):
+        # 界面初始化完成后，进行请求操作
+        pass
 
 
 if __name__ == "__main__":

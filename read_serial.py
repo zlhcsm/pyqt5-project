@@ -92,3 +92,27 @@ class Ser(object):
 ser = Ser()
 Hex_str = bytes.fromhex('55 55 00 00 01 00 62 01')
 ser.send_cmd(Hex_str)
+
+# 设置ADC值
+def set_ADC():
+    pass
+
+
+# 获取ADC值
+def get_ADC():
+    pass
+
+
+# 获取TOCO值
+def get_TOCO():
+    pass
+
+
+# 获取DAC值
+def get_DAC():
+    pass
+
+
+# 设置DAC值
+def set_DAC():
+    pass

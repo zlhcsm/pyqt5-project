@@ -4,3 +4,4 @@ test.*
 .idea/*
 test.py
 __pycache__/*
+panels/__pycache__/
